@@ -1,0 +1,36 @@
+<ion-app>
+    <ion-menu>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons>  
+              <ion-title>Bienvenue {{username}}</ion-title>
+              <ion-button button-type="bar-button" fill="solid" slot="icon-only" color="primary" (click)="logout()">              
+                <ion-icon slot="end" name="settings"></ion-icon>            
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        
+        <ion-content>
+          <ion-list>
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+              <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+                <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                <ion-label>
+                  {{p.title}}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+        </ion-content>
+        <ion-footer>         
+          <ion-buttons slot="end">              
+            <ion-button color="primary" (click)="logout()">              
+              <ion-icon slot="start" name="exit"></ion-icon>
+              Déconnexion
+            </ion-button>
+          </ion-buttons>
+      </ion-footer>
+      </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>
